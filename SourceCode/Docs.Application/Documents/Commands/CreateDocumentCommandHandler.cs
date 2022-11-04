@@ -11,7 +11,7 @@ internal sealed class CreateDocumentCommandHandler : ICommandHandler<CreateDocum
   private IDocumentRepository DocumentRepository { get; } 
   //private IUnitOfWork UnitOfWork { get; }
 
-  public CreateDocumentCommandHandler(IDocumentRepository documentRepository, )
+  public CreateDocumentCommandHandler(IDocumentRepository documentRepository)
   {
     DocumentRepository = documentRepository;
   }
@@ -24,6 +24,6 @@ internal sealed class CreateDocumentCommandHandler : ICommandHandler<CreateDocum
     // TODO: Implement UnityOfWork
     // await UnityOfWork.SaveChangesAsync(cancellationToken);
 
-    return Task.FromResult(new Result(true, string.Empty));
+    return new Result(true, string.Empty);
   }
 }
