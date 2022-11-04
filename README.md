@@ -42,10 +42,8 @@ class Program
 {
 static void Main(string[] args)
 {
-var sourceFileName = Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source
-Files\\Document1.xml");
-var targetFileName = Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target
-Files\\Document1.json");
+var sourceFileName = Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Source Files\\Document1.xml");
+var targetFileName = Path.Combine(Environment.CurrentDirectory, "..\\..\\..\\Target Files\\Document1.json");
 try
 {
 FileStream sourceStream = File.Open(sourceFileName, FileMode.Open);
