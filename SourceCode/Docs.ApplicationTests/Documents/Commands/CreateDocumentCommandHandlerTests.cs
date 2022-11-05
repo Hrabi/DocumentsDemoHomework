@@ -1,10 +1,8 @@
 ﻿namespace Docs.ApplicationTests.Documents.Commands;
 
+using Application.Abstractions;
 using Application.Documents.Commands;
 using Domain.Entities;
-using Domain.Repositories;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 
 
 [TestClass()]

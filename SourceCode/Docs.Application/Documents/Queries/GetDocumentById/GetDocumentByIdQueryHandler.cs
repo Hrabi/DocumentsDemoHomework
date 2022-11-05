@@ -1,7 +1,8 @@
 ﻿namespace Docs.Application.Documents.Queries.GetDocumentById;
 
+using Abstractions;
 using Abstractions.Messaging;
-using Domain.Repositories;
+
 using Domain.Shared;
 
 

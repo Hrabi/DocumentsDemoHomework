@@ -1,6 +1,7 @@
-﻿namespace Docs.Domain.Repositories;
+﻿namespace Docs.Infrastructure.Repositories;
 
-using Entities;
+using Application.Abstractions;
+using Domain.Entities;
 
 
 public class DocumentRepository : IDocumentRepository

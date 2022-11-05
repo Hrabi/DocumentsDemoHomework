@@ -1,6 +1,6 @@
-﻿namespace Docs.Domain.Repositories;
+﻿namespace Docs.Application.Abstractions;
 
-using Entities;
+using Domain.Entities;
 
 
 public interface IDocumentRepository
