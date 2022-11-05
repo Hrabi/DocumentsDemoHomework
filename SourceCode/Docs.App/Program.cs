@@ -10,8 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Scrutor - https://github.com/khellang/Scrutor
-//builder.Services.Scan(selector => selector.FromAssemblies(Docs.Application.AssemblyReference.Assembly, Docs.Domain.AssemblyReference.Assembly)
-builder.Services.Scan(selector => selector.FromAssemblies(Docs.Domain.AssemblyReference.Assembly)
+builder.Services.Scan(selector => selector.FromAssemblies(Docs.Domain.AssemblyReference.Assembly, Docs.Infrastructure.AssemblyReference.Assembly)
   .AddClasses(false)
   .AsImplementedInterfaces()
   .WithScopedLifetime());

@@ -3,4 +3,4 @@
 using Abstractions.Messaging;
 
 
-public sealed record CreateDocumentCommand(string Title, string Text) : ICommand;
+public sealed record CreateDocumentCommand(string Title, string Text) : ICommand<Guid>;

@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Docs.Application\Docs.Application.csproj" />
+    <ProjectReference Include="..\Docs.Infrastructure\Docs.Infrastructure.csproj" />
     <ProjectReference Include="..\Docs.Presentation\Docs.Presentation.csproj" />
   </ItemGroup>
 
