@@ -10,7 +10,6 @@ using Microsoft.Extensions.Logging;
 using QueryEntities;
 
 
-[Route("[controller]")]
 public sealed class DocumentController : ApiController
 {
   private ILogger<DocumentController> Logger { get; }
@@ -45,6 +44,6 @@ public sealed class DocumentController : ApiController
     var docCommand = new CreateDocumentCommand(registerDocumentRequest.Title, registerDocumentRequest.Text);
     var result = await Sender.Send(docCommand, cancellationToken);
 
-    return result.IsSuccess ? Ok() : BadRequest(result.ErrorMessage);
+    return result.IsSuccess ? Ok(result.Data) : BadRequest(result.ErrorMessage);
   }
 }

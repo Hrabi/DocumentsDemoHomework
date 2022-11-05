@@ -3,7 +3,7 @@
 using Domain.Entities;
 
 
-public sealed record DocumentResponse(Guid documentId, Document document)
+public sealed record DocumentResponse(Guid DocumentId, Document Document)
 {
 
 }

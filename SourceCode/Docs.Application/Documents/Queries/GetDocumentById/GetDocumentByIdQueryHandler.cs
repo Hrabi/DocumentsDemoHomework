@@ -17,11 +17,11 @@ public class GetDocumentByIdQueryHandler : IQueryHandler<GetDocumentByIdQuery, D
 
   public async Task<Result<DocumentResponse>> Handle(GetDocumentByIdQuery request, CancellationToken cancellationToken)
   {
-    var document = await DocumentRepository.GetByIdAsync(request.documentId, cancellationToken);
+    var document = await DocumentRepository.GetByIdAsync(request.DocumentId, cancellationToken);
 
     if (document is null)
     {
-      return new Result<DocumentResponse>(false, $"Document with {request.documentId} not found.", null);
+      return new Result<DocumentResponse>(false, $"Document with {request.DocumentId} not found.", null);
     }
 
     var response = new Result<DocumentResponse>(true, null, new DocumentResponse(document.DocumentId, document));
