@@ -3,9 +3,9 @@
 public class Result 
 {
   public bool IsSuccess { get; }
-  public string ErrorMessage { get; }
+  public string? ErrorMessage { get; }
 
-  public Result(bool isSuccess, string errorMessage)
+  public Result(bool isSuccess, string? errorMessage = null)
   {
     IsSuccess = isSuccess;
     ErrorMessage = errorMessage;
@@ -14,9 +14,9 @@ public class Result
 
 public class Result<TData> : Result
 {
-  public TData Data { get; }
+  public TData? Data { get; }
 
-  public Result(bool isSuccess, string errorMessage, TData data) : base(isSuccess, errorMessage)
+  public Result(bool isSuccess, string? errorMessage, TData? data) : base(isSuccess, errorMessage)
   {
     Data = data;
   }

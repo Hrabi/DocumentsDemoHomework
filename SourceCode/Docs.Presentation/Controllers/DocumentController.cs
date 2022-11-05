@@ -4,11 +4,10 @@ namespace Docs.Presentation.Controllers;
 
 using Abstractions;
 using Application.Documents.Commands;
-using Domain.Entities;
+using Application.Documents.Queries.GetDocumentById;
 using MediatR;
 using Microsoft.Extensions.Logging;
-
-
+using QueryEntities;
 
 
 [Route("[controller]")]
@@ -21,19 +20,31 @@ public sealed class DocumentController : ApiController
     Logger = logger;
   }
 
-  //[HttpGet(Name = "GetDocuments")]
-  //public IEnumerable<Document> Get()
-  //{
-  //}
+  [HttpGet]
+  public async Task<IActionResult> GetDocumentById([FromQuery] GetDocumentRequest documentRequest, CancellationToken cancellationToken)
+  {
+    if (documentRequest.Id == default(Guid))
+    {
+      return BadRequest("Document request parameter ID cannot be empty.");
+    }
+
+    var query = new GetDocumentByIdQuery(documentRequest.Id);
+    var response = await Sender.Send(query, cancellationToken);
+
+    return response.IsSuccess ? Ok(response) : BadRequest(response.ErrorMessage);
+  }
 
   [HttpPost]
-  public async Task<IActionResult> RegisterDocument(CancellationToken cancellationToken)
+  public async Task<IActionResult> RegisterDocument([FromBody] RegisterDocumentRequest registerDocumentRequest, CancellationToken cancellationToken)
   {
-    var docCommand = new CreateDocumentCommand("Title", "Text");
+    if (string.IsNullOrWhiteSpace(registerDocumentRequest.Title) || string.IsNullOrWhiteSpace(registerDocumentRequest.Text))
+    {
+      return BadRequest("Document request parameters cannot be empty.");
+    }
+
+    var docCommand = new CreateDocumentCommand(registerDocumentRequest.Title, registerDocumentRequest.Text);
     var result = await Sender.Send(docCommand, cancellationToken);
 
     return result.IsSuccess ? Ok() : BadRequest(result.ErrorMessage);
   }
-
-
 }
