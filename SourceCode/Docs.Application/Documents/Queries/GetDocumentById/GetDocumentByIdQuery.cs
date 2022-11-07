@@ -3,6 +3,4 @@
 using Abstractions.Messaging;
 
 
-public sealed record GetDocumentByIdQuery(Guid DocumentId) : IQuery<DocumentResponse>
-{
-}
+public sealed record GetDocumentByIdQuery(Guid DocumentId) : IQuery<DocumentResponse> { }

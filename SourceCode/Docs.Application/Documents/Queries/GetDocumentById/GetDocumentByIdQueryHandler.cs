@@ -2,11 +2,10 @@
 
 using Abstractions;
 using Abstractions.Messaging;
-
 using Domain.Shared;
 
 
-public class GetDocumentByIdQueryHandler : IQueryHandler<GetDocumentByIdQuery, DocumentResponse>
+internal class GetDocumentByIdQueryHandler : IQueryHandler<GetDocumentByIdQuery, DocumentResponse>
 {
   private IDocumentRepository DocumentRepository { get; }
 

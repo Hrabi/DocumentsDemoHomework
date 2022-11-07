@@ -30,6 +30,6 @@ public class DocumentRepository : IDocumentRepository
   {
     await Task.Delay(TimeSpan.FromSeconds(3));
 
-    return null;
+    return new Document{DocumentId = requestDocumentId};
   }
 }

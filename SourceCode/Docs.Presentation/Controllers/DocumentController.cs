@@ -4,6 +4,7 @@ namespace Docs.Presentation.Controllers;
 
 using Abstractions;
 using Application.Documents.Commands;
+using Application.Documents.Queries.ConvertDocumentById;
 using Application.Documents.Queries.GetDocumentById;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -46,4 +47,15 @@ public sealed class DocumentController : ApiController
 
     return result.IsSuccess ? Ok(result.Data) : BadRequest(result.ErrorMessage);
   }
+
+  [HttpPost("ConvertDocument")]
+  public async Task<IActionResult> ConvertDocumentById([FromBody] ConvertDocumentRequest convertDocumentRequest, CancellationToken cancellationToken)
+  {
+    var query = new ConvertDocumentByIdQuery(convertDocumentRequest.DocumentId, convertDocumentRequest.Text);
+    var response = await Sender.Send(query, cancellationToken);
+
+    return response.IsSuccess ? Ok(response.Data?.Document.Text) : BadRequest(response.ErrorMessage);
+  }
+
+
 }
