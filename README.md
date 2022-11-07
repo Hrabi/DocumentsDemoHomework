@@ -67,3 +67,33 @@ sw.Write(serializedDoc);
 }
 }
 }
+   ```
+## Solution
+### Clean architecture
+https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures
+![image](https://user-images.githubusercontent.com/37542708/200276861-91a3cb4a-3461-4658-b102-c8242856f963.png)
+
+### CQRS pattern
+https://learn.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/apply-simplified-microservice-cqrs-ddd-patterns
+![image](https://user-images.githubusercontent.com/37542708/200277488-3ee525b5-3cde-49b5-ab79-c5e0843fdf36.png)
+
+### MediatR in ASP.NET or ASP.NET Core
+https://medium.com/dotnet-hub/use-mediatr-in-asp-net-or-asp-net-core-cqrs-and-mediator-in-dotnet-how-to-use-mediatr-cqrs-aspnetcore-5076e2f2880c
+![image](https://user-images.githubusercontent.com/37542708/200278489-096e325d-3aca-41a3-ad0e-4a05c0c8ef29.png)
+
+### Scrutor 
+https://github.com/khellang/Scrutor
+
+## Data Processing
+
+### Cinchoo ETL
+Simple, intutive Extract, transform and load (ETL) library for .NET. Extremely fast, flexible, and easy to use.
+https://github.com/Cinchoo/ChoETL
+
+## Testing
+
+### Moq
+https://github.com/moq/moq4
+
+### ArchUnit - enforce architecture rules
+https://www.ben-morris.com/writing-archunit-style-tests-for-net-and-c-for-self-testing-architectures/
